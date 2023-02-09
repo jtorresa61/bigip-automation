@@ -1,0 +1,53 @@
+{{!
+  ** FOR DEMONSTRATION PURPOSES--NOT INTENDED FOR USE IN PRODUCTION **
+  This template is an example of how one might build a simple WAF application with load balancing.
+  It allows the user to provide a virtual IP address and port, a list of HTTP server addresses,
+  the name of a pre-loaded TLS certificate, and the name of a pre-configured WAF policy.
+  The user-supplied values are inserted when the template is rendered, yielding an AS3 declaration
+  suitable for submission to BIG-IP.
+}}
+{
+  "class": "ADC",
+  "schemaVersion": "3.0.0",
+  "id": "template-simple-https-asm",
+  "label": "Simple HTTPS",
+  "remark": "An HTTPS application",
+  "{{tenant_name}}": {
+    "class": "Tenant",
+    "{{application_name}}": {
+      "class": "Application",
+      "template": "https",
+      "serviceMain": {
+        "class": "Service_HTTPS",
+        "virtualPort": {{virtual_port::integer}},
+        "virtualAddresses": [ "{{virtual_address}}" ],
+        "pool": "{{application_name}}_web_pool",
+        "policyWAF": {
+          "bigip": "{{WAF_policy_path}}"
+        },
+        "serverTLS": "webtls"
+      },
+      "{{application_name}}_web_pool": {
+        "class": "Pool",
+        "monitors": [
+          "http"
+        ],
+        "members": [{
+          "servicePort": {{server_port::integer}},
+          "serverAddresses": {{server_address::array}}
+        }]
+      },
+      "webtls": {
+        "class": "TLS_Server",
+        "certificates": [{
+          "certificate": "webcert"
+        }]
+      },
+      "webcert": {
+        "class": "Certificate",
+        "certificate": {{certificate::text}},
+        "privateKey": {{private_key::text}}
+      }
+    }
+  }
+}
