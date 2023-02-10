@@ -2,8 +2,8 @@ terraform {
   required_providers {
     bigip = {
       source = "terraform-providers/bigip"
+      version = ">= 0.13"
     }
-  required_version = ">= 0.13"
   }
 }
 provider "bigip" {
