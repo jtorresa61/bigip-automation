@@ -1,25 +1,25 @@
-resource "bigip_ssl_certificate" "app4crt" {
-  name      = "app4.crt"
-  content   = file("app4.crt")
+resource "bigip_ssl_certificate" "app1crt" {
+  name      = "app1.crt"
+  content   = file("app1.crt")
   partition = "Common"
 }
 
-resource "bigip_ssl_key" "app4key" {
-  name      = "app4.key"
-  content   = file("app4.key")
+resource "bigip_ssl_key" "app1key" {
+  name      = "app1.key"
+  content   = file("app1.key")
   partition = "Common"
 }
 
 resource "bigip_fast_https_app" "this" {
-  application               = "myApp4"
-  tenant                    = "scenario4"
+  application               = "myApp1"
+  tenant                    = "ltm_scenario1"
   virtual_server            {
     ip                        = "10.1.10.224"
     port                      = 443
   }
   tls_server_profile {
-    tls_cert_name             = "/Common/app4.crt"
-    tls_key_name              = "/Common/app4.key"
+    tls_cert_name             = "/Common/app1.crt"
+    tls_key_name              = "/Common/app1.key"
   }
   pool_members  {
     addresses                 = ["10.1.10.120", "10.1.10.121", "10.1.10.122"]
@@ -31,5 +31,5 @@ resource "bigip_fast_https_app" "this" {
     send_string               = "GET / HTTP/1.1\\r\\nHost: example.com\\r\\nConnection: Close\\r\\n\\r\\n"
     response                  = "200 OK"
   }
-  depends_on		      = [bigip_ssl_certificate.app4crt, bigip_ssl_key.app4key]
+  depends_on		      = [bigip_ssl_certificate.app1crt, bigip_ssl_key.app1key]
 }
