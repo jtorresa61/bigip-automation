@@ -1,8 +1,8 @@
 terraform {
   required_providers {
     bigip = {
-      source = "terraform-providers/bigip"
-      version = ">= 0.13"
+      source = "F5Networks/bigip"
+      version = ">= 1.16.0"
     }
   }
 }
