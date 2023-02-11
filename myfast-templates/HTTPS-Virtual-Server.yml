@@ -6,6 +6,7 @@ parameters:
   member_1: 192.0.2.12
   member_2: 192.0.2.13
   app_n: my_app
+  id_text: 1a
 definitions: 
   tenant_name:
     title: Nombre Particion
@@ -29,7 +30,7 @@ template: |
     "declaration": {
       "class": "ADC",
       "schemaVersion": "3.0.0",
-      "id": "123abc",
+      "id": "{{id_text}}",
       "label": "Sample 2",
       "remark": "HTTPS with predictive-node pool",
       "{{tenant_name}}": {
