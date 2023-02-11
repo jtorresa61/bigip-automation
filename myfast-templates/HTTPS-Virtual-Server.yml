@@ -36,7 +36,6 @@ template: |
         "class": "Tenant",
         "{{app_n}}": {
           "class": "Application",
-          "template": "shared",
           "myservice": {
             "class": "Service_HTTPS",
             "virtualAddresses": [
