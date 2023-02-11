@@ -5,6 +5,7 @@ parameters:
   virtual_address: 192.0.2.11
   member_1: 192.0.2.12
   member_2: 192.0.2.13
+  app_n: my_app
 definitions: 
   tenant_name:
     title: Nombre Particion
@@ -17,6 +18,8 @@ definitions:
     title: Primer miembro
   member_2:
     title: Segundo Miembro
+  app_n:
+    title: Nombre de la aplicacion
 template: | 
   {
     "$schema": "https://raw.githubusercontent.com/F5Networks/f5-appsvcs-extension/master/schema/latest/as3-schema.json",
@@ -33,8 +36,7 @@ template: |
         "class": "Tenant",
         "A1": {
           "class": "Application",
-          "template": "https",
-          "serviceMain": {
+          "{{app_n}}": {
             "class": "Service_HTTPS",
             "virtualAddresses": [
               "{{virtual_address}}"
