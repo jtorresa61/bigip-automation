@@ -45,7 +45,7 @@ template: |
             "policyWAF": {
               "use": "demo_security"
              },
-            "serverTLS": "clientssl"
+            "serverTLS": "/Common/clientssl"
           },
           "web_pool": {
             "class": "Pool",
