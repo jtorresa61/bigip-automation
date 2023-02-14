@@ -65,7 +65,7 @@ template: |
             ]
           },
           "client_webtls": {
-            "class": "TLS_Server",
+            "class": "TLS_Client",
             "certificates": [
               {
                 "certificate": "webcert"
