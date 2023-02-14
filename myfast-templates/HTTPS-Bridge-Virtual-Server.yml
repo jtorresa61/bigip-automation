@@ -49,7 +49,7 @@ template: |
                         "use": "DOS_Profile"
             },
             "securityLogProfiles": [
-                "mylogging"
+                "/Common/mylogging"
             ],
             "clientTLS": "client_webtls",
             "serverTLS": "server_webtls"
