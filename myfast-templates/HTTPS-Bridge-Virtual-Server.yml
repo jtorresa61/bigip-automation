@@ -48,7 +48,7 @@ template: |
             "profileDOS": {
                         "use": "DOS_Profile"
             },
-            "loggingProfile" {
+            "Security_Log_Profile" {
               "use": "mylogging"
             },
             "clientTLS": "client_webtls",
