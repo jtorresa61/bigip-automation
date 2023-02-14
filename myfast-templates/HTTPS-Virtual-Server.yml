@@ -1,11 +1,11 @@
 title: HTTPS Virtual Server
 description: this is nice
 parameters:
-  tenant_name: Sample_02
-  virtual_address: 192.0.2.11
-  member_1: 192.0.2.12
-  member_2: 192.0.2.13
-  app_n: Shared
+  tenant_name: demo
+  virtual_address: 172.31.5.15
+  member_1: 172.31.5.7
+  member_2: 172.31.5.8
+  app_n: demo-app
 definitions: 
   tenant_name:
     title: Nombre Particion
