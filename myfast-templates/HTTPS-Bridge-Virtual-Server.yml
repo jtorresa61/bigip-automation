@@ -52,11 +52,11 @@ template: |
             "class": "Pool",
             "loadBalancingMode": "predictive-node",
             "monitors": [
-              "http"
+              "https"
             ],
             "members": [
               {
-                "servicePort": 80,
+                "servicePort": 443,
                 "serverAddresses": [
                   "{{member_1}}",
                   "{{member_2}}"
@@ -66,11 +66,8 @@ template: |
           },
           "client_webtls": {
             "class": "TLS_Client",
-            "certificates": [
-              {
-                "certificate": "webcert"
-              }
-            ]
+            "label": "simplest decl requires just cert",
+            "clientCertificate": "webcert"
           },
           "webcert": {
             "class": "Certificate",
