@@ -42,7 +42,7 @@ template: |
               "{{virtual_address}}"
             ],
             "pool": "web_pool",
-            "securityLogProfiles ": [
+            "securityLogProfiles": [
               "{secLogLocal}"
             ],
             "policyWAF": {
