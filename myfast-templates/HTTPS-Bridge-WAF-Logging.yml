@@ -138,7 +138,7 @@ template: |
                     "maxRequestSize": 900,
                     "responseLogging": "all"
                 }
-            }
+            },
           "demo_security": {
               "class": "WAF_Policy",
               "url": "https://raw.githubusercontent.com/jtorresa61/bigip-automation/main/WAF/demo_security2.xml",
