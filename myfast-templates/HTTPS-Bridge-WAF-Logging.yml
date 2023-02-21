@@ -43,7 +43,7 @@ template: |
             ],
             "pool": "web_pool",
             "securityLogProfiles": [
-              "/Security_Log_local/Application/secLogLocal}"
+              "use": "mylogging"
             ],
             "policyWAF": {
               "use": "demo_security"
