@@ -42,9 +42,9 @@ template: |
               "{{virtual_address}}"
             ],
             "pool": "web_pool",
-            "securityLogProfiles": [
+            "securityLogProfiles": {
               "bigip": "mylogging"
-            ],
+            },
             "policyWAF": {
               "use": "demo_security"
              },
