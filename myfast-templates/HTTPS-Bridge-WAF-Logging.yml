@@ -43,7 +43,7 @@ template: |
             ],
             "pool": "web_pool",
             "securityLogProfiles": [
-              "use": "mylogging"
+              "bigip": "mylogging"
             ],
             "policyWAF": {
               "use": "demo_security"
