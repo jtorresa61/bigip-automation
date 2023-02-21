@@ -43,7 +43,7 @@ template: |
             ],
             "pool": "web_pool",
             "securityLogProfiles": [
-              "{secLogLocal}"
+              "use": "secLogLocal"
             ],
             "secLogLocal": {
                 "class": "Security_Log_Profile",
