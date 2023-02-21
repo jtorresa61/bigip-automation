@@ -141,7 +141,7 @@ template: |
             },
           "demo_security": {
               "class": "WAF_Policy",
-              "url": "https://raw.githubusercontent.com/jtorresa61/bigip-automation/main/WAF/demo_security2.xml",
+              "url": "https://raw.githubusercontent.com/jtorresa61/bigip-automation/main/WAF/demo_security.xml",
               "ignoreChanges": true
           },
           "DOS_Profile": {
