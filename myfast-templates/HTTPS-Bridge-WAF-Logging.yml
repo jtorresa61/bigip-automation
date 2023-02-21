@@ -43,7 +43,10 @@ template: |
             ],
             "pool": "web_pool",
             "securityLogProfiles": {
-              "bigip": "/Common/mylogging"
+              "use": "myseclog"
+            },
+            "myseclog": {
+               "bigip": "/Common/mylogging"
             },
             "policyWAF": {
               "use": "demo_security"
