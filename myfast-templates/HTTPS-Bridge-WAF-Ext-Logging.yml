@@ -43,7 +43,7 @@ template: |
             ],
             "pool": "web_pool",
             "policyWAF": {
-              "bigip": "/Common/my_security"
+              "use": "demo_security"
             },
             "securityLogProfiles": [
               {"bigip": "/Common/mylogging"}
@@ -53,6 +53,11 @@ template: |
             },
             "clientTLS": "client_webtls",
             "serverTLS": "server_webtls"
+          },
+          "demo_security": {
+            "class": "WAF_Policy",
+            "url": "https://raw.githubusercontent.com/jtorresa61/bigip-automation/main/WAF/demo_security2.xml",
+            "ignoreChanges": true
           },
           "web_pool": {
             "class": "Pool",
