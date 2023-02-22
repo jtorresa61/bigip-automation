@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<policy integrity_check="fbe25f90f6ad0439414ae7245f3f5c58" bigip_version="16.1.3" name="/Common/my_security">
+<policy integrity_check="03aebf7350dab0b1f3676b0242668fa5" bigip_version="16.1.3" name="/demo/demo_app/demo_security">
   <type>Security</type>
   <policy_version>
-    <timestamp>2023-02-08T19:20:23Z</timestamp>
+    <timestamp>2022-05-13T01:55:57Z</timestamp>
     <device_name>bigip1.its.corp</device_name>
-    <policy_name>/Common/my_security</policy_name>
-    <last_change> Security Policy /Common/my_security [add]: Parent Policy was set to empty value.
-Type was set to Security.
-Encoding Selected was set to true.
-Application Language was set to utf-8.
-Active was set to true.
-Policy Name was set to /Common/my_security. { audit: policy = /Common/my_security, component = tsconfd }</last_change>
+    <policy_name>/demo/demo_app/demo_security</policy_name>
+    <last_change>Disallowed Geolocation Russian Federation [add]: Location was set to Russian Federation.
+Country Code was set to RU.
+Inherited was set to false. { audit: policy = /demo/demo_app/demo_security, username = admin, client IP = 187.191.38.24 }</last_change>
   </policy_version>
   <encoding>utf-8</encoding>
   <description>Rapid Deployment Policy</description>
@@ -44,328 +41,22 @@ Policy Name was set to /Common/my_security. { audit: policy = /Common/my_securit
     <csrf_url>
       <target_pattern>*</target_pattern>
       <wildcard_order>1</wildcard_order>
-      <last_updated>2022-04-29T23:10:00Z</last_updated>
+      <last_updated>2022-05-13T01:45:00Z</last_updated>
       <csrf_url_method>POST</csrf_url_method>
       <csrf_url_enforcement_action>verify-csrf-token</csrf_url_enforcement_action>
       <required_parameters>ignore</required_parameters>
     </csrf_url>
   </csrf>
-  <allowed_response_code>503</allowed_response_code>
-  <allowed_response_code>407</allowed_response_code>
   <allowed_response_code>400</allowed_response_code>
-  <allowed_response_code>404</allowed_response_code>
   <allowed_response_code>401</allowed_response_code>
+  <allowed_response_code>404</allowed_response_code>
+  <allowed_response_code>407</allowed_response_code>
   <allowed_response_code>417</allowed_response_code>
+  <allowed_response_code>503</allowed_response_code>
   <blocking>
-    <enforcement_mode>transparent</enforcement_mode>
+    <enforcement_mode>blocking</enforcement_mode>
     <passive_mode>disabled</passive_mode>
-    <violation name="Illegal query string or POST data" id="QS_OR_POST_DATA">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal parameter" id="PARAM">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Mandatory request body is missing" id="MANDATORY_REQUEST_BODY">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal redirection attempt" id="REDIRECT">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Brute Force: Maximum login attempts are exceeded" id="BRUTE_FORCE_ATTACK_DETECTED">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Binary content found in text only WebSocket" id="WEBSOCKET_BINARY_MESSAGE_NOT_ALLOWED">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Evasion technique detected" id="EVASION_DETECTED">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal parameter array value" id="ILLEGAL_PARAM_ARRAY_VALUE">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal repeated parameter name" id="REPEATED_PARAMETER_NAME">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal cookie length" id="COOKIE_LEN">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal WebSocket extension" id="WEBSOCKET_EXTENSION">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal query string length" id="QS_LEN">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal dynamic parameter value" id="DYN_PARAM_VALUE">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal request content type" id="ILLEGAL_REQUEST_CONTENT_TYPE">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Bad Actor Detected" id="MALICIOUS_DEVICE">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal WebSocket binary message length" id="WEBSOCKET_BINARY_MESSAGE_LENGTH">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="JSON data does not comply with format settings" id="JSON_FORMAT_SETTING">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Malformed GWT data" id="MALFORMED_GWT">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="GWT data does not comply with format settings" id="GWT_FORMAT_SETTING">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="CSRF authentication expired" id="CSRF_EXPIRED">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Bad Actor Convicted" id="CONVICTION">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="XML data does not comply with schema or WSDL document" id="XML_WSDL">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal empty parameter value" id="EMPTY_PARAM_VALUE">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal method" id="ILLEGAL_METHOD">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Malformed XML data" id="MALFORMED_XML">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Access from disallowed User/Session/IP/Device ID" id="SESSION_AWARENESS">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Leaked Credentials Detection" id="LEAKED_CREDENTIALS">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Host name mismatch" id="HOSTNAME_MISMATCH">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Failure in WebSocket framing protocol" id="WEBSOCKET_FRAMING_PROTOCOL">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Null in multi-part parameter value" id="MULTI_PART_PARAM_VAL">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Malformed JSON data" id="MALFORMED_JSON">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Parameter value does not comply with regular expression" id="PARAM_VALUE_NOT_MATCHING_REGEX">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Bad WebSocket handshake request" id="WEBSOCKET_BAD_REQUEST">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Disallowed file upload content detected" id="DISALLOWED_FILE_UPLOAD_CONTENT">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal parameter numeric value" id="PARAM_NUMERIC_VALUE">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="CSRF attack detected" id="CSRF">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Access from disallowed Geolocation" id="ILLEGAL_GEOLOCATION">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="JSON data does not comply with JSON schema" id="JSON_SCHEMA">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Modified domain cookie(s)" id="MOD_DOMAIN_COOKIE">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal Base64 value" id="BASE64_PARAM_VALUE">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal meta character in header" id="METACHAR_IN_HEADER">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal number of frames per message" id="WEBSOCKET_FRAMES_PER_MESSAGE_COUNT">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Mask not found in client frame" id="WEBSOCKET_FRAME_MASKING">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal static parameter value" id="STATIC_PARAM_VALUE">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Mitigation action determined by Threat Analysis Platform" id="THREAT_ANALYSIS">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="IP is blacklisted" id="BLACKLISTED_IP">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal URL length" id="OBJ_LEN">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Mandatory HTTP header is missing" id="MISSING_MANDATORY_HEADER">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal HTTP status in response" id="HTTP_STATUS_IN_RESPONSE">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal WebSocket frame length" id="WEBSOCKET_FRAME_LENGTH">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Text content found in binary only WebSocket" id="WEBSOCKET_TEXT_MESSAGE_NOT_ALLOWED">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Null character found in WebSocket text message" id="WEBSOCKET_TEXT_NULL_VALUE">
+    <violation name="Illegal attachment in SOAP message" id="ILLEGAL_SOAP_ATTACHMENT">
       <alarm>false</alarm>
       <block>false</block>
       <learn>false</learn>
@@ -377,187 +68,7 @@ Policy Name was set to /Common/my_security. { audit: policy = /Common/my_securit
       <learn>true</learn>
       <policy_builder_tracking>enabled</policy_builder_tracking>
     </violation>
-    <violation name="Illegal request length" id="REQ_LEN">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal attachment in SOAP message" id="ILLEGAL_SOAP_ATTACHMENT">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal host name" id="HOSTNAME">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal POST data length" id="POST_DATA_LEN">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Mandatory parameter is missing" id="MANDATORY_PARAMETER">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal meta character in URL" id="METACHAR_IN_OBJ">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal header length" id="HEADER_LEN">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal parameter location" id="PARAMETER_LOCATION">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Plain text data does not comply with format settings" id="PLAINTEXT_FORMAT_SETTING">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal number of mandatory parameters" id="NUM_OF_MANDATORY_PARAMS">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="HTTP protocol compliance failed" id="HTTP_SANITY_CHECK_FAILED">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal cross-origin request" id="CROSS_ORIGIN_REQUEST">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Access from malicious IP address" id="PARSER_ACCESS_FROM_MALICIOUS_IP_ADDRESS">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal entry point" id="ENTRY_POINT">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal meta character in parameter name" id="METACHAR_IN_PARAM_NAME">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Modified ASM cookie" id="MOD_ASM_COOKIE">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Threat Campaign detected" id="THREAT_CAMPAIGN_DETECTED">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal parameter data type" id="PARAM_DATA_TYPE">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="SOAP method not allowed" id="SOAP_METHOD_NOT_ALLOWED">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Expired timestamp" id="EXPIRED_TIMESTAMP">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal meta character in value" id="METACHAR_IN_DEF_PARAM">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Failed to convert character" id="CHAR_CONV">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Virus detected" id="VIRUS_DETECTED">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Blocking Condition Detected" id="BLOCKING_CONDITION">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal flow to URL" id="FLOW_TO_OBJ">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
     <violation name="Login URL expired" id="PARSER_EXPIRED_INGRESS_OBJECT">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="XML data does not comply with format settings" id="XML_FORMAT_SETTING">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Cookie not RFC-compliant" id="NOT_RFC_COOKIE">
-      <alarm>true</alarm>
-      <block>true</block>
-      <learn>true</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="ASM Cookie Hijacking" id="MSG_KEY">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Web Services Security failure" id="PARSER_FAILED_SOAP_SECURITY">
-      <alarm>false</alarm>
-      <block>false</block>
-      <learn>false</learn>
-      <policy_builder_tracking>enabled</policy_builder_tracking>
-    </violation>
-    <violation name="Illegal file type" id="OBJ_TYPE">
       <alarm>false</alarm>
       <block>false</block>
       <learn>false</learn>
@@ -569,7 +80,193 @@ Policy Name was set to /Common/my_security. { audit: policy = /Common/my_securit
       <learn>false</learn>
       <policy_builder_tracking>enabled</policy_builder_tracking>
     </violation>
+    <violation name="Request length exceeds defined buffer size" id="REQUEST_TOO_LONG">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Virus detected" id="VIRUS_DETECTED">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Evasion technique detected" id="EVASION_DETECTED">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Web Services Security failure" id="PARSER_FAILED_SOAP_SECURITY">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="XML data does not comply with format settings" id="XML_FORMAT_SETTING">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="XML data does not comply with schema or WSDL document" id="XML_WSDL">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Malformed XML data" id="MALFORMED_XML">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="CSRF attack detected" id="CSRF">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Failed to convert character" id="CHAR_CONV">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="HTTP protocol compliance failed" id="HTTP_SANITY_CHECK_FAILED">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Access from disallowed Geolocation" id="ILLEGAL_GEOLOCATION">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal query string length" id="QS_LEN">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal request length" id="REQ_LEN">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal cookie length" id="COOKIE_LEN">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal URL length" id="OBJ_LEN">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="CSRF authentication expired" id="CSRF_EXPIRED">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Brute Force: Maximum login attempts are exceeded" id="BRUTE_FORCE_ATTACK_DETECTED">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="SOAP method not allowed" id="SOAP_METHOD_NOT_ALLOWED">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal meta character in value" id="METACHAR_IN_DEF_PARAM">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal meta character in parameter name" id="METACHAR_IN_PARAM_NAME">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal meta character in URL" id="METACHAR_IN_OBJ">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal repeated parameter name" id="REPEATED_PARAMETER_NAME">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="JSON data does not comply with format settings" id="JSON_FORMAT_SETTING">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal header length" id="HEADER_LEN">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Null in multi-part parameter value" id="MULTI_PART_PARAM_VAL">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal POST data length" id="POST_DATA_LEN">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal empty parameter value" id="EMPTY_PARAM_VALUE">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal parameter" id="PARAM">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal query string or POST data" id="QS_OR_POST_DATA">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
     <violation name="Illegal session ID in URL" id="SESSSION_ID_IN_URL">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal method" id="ILLEGAL_METHOD">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal flow to URL" id="FLOW_TO_OBJ">
       <alarm>false</alarm>
       <block>false</block>
       <learn>false</learn>
@@ -581,16 +278,316 @@ Policy Name was set to /Common/my_security. { audit: policy = /Common/my_securit
       <learn>false</learn>
       <policy_builder_tracking>enabled</policy_builder_tracking>
     </violation>
+    <violation name="Illegal file type" id="OBJ_TYPE">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Parameter value does not comply with regular expression" id="PARAM_VALUE_NOT_MATCHING_REGEX">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal number of mandatory parameters" id="NUM_OF_MANDATORY_PARAMS">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal parameter numeric value" id="PARAM_NUMERIC_VALUE">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal parameter data type" id="PARAM_DATA_TYPE">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
     <violation name="Illegal parameter value length" id="PARAM_VALUE_LEN">
       <alarm>false</alarm>
       <block>false</block>
       <learn>false</learn>
       <policy_builder_tracking>enabled</policy_builder_tracking>
     </violation>
-    <violation name="Request length exceeds defined buffer size" id="REQUEST_TOO_LONG">
+    <violation name="Illegal dynamic parameter value" id="DYN_PARAM_VALUE">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal static parameter value" id="STATIC_PARAM_VALUE">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Expired timestamp" id="EXPIRED_TIMESTAMP">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="ASM Cookie Hijacking" id="MSG_KEY">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Access from disallowed User/Session/IP/Device ID" id="SESSION_AWARENESS">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal entry point" id="ENTRY_POINT">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Malformed JSON data" id="MALFORMED_JSON">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Cookie not RFC-compliant" id="NOT_RFC_COOKIE">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Modified domain cookie(s)" id="MOD_DOMAIN_COOKIE">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Modified ASM cookie" id="MOD_ASM_COOKIE">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal HTTP status in response" id="HTTP_STATUS_IN_RESPONSE">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal request content type" id="ILLEGAL_REQUEST_CONTENT_TYPE">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal meta character in header" id="METACHAR_IN_HEADER">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Malformed GWT data" id="MALFORMED_GWT">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Disallowed file upload content detected" id="DISALLOWED_FILE_UPLOAD_CONTENT">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Access from malicious IP address" id="PARSER_ACCESS_FROM_MALICIOUS_IP_ADDRESS">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal Base64 value" id="BASE64_PARAM_VALUE">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="GWT data does not comply with format settings" id="GWT_FORMAT_SETTING">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Mandatory HTTP header is missing" id="MISSING_MANDATORY_HEADER">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal redirection attempt" id="REDIRECT">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Bad WebSocket handshake request" id="WEBSOCKET_BAD_REQUEST">
       <alarm>false</alarm>
       <block>false</block>
       <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Failure in WebSocket framing protocol" id="WEBSOCKET_FRAMING_PROTOCOL">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Mask not found in client frame" id="WEBSOCKET_FRAME_MASKING">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>true</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal WebSocket frame length" id="WEBSOCKET_FRAME_LENGTH">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Null character found in WebSocket text message" id="WEBSOCKET_TEXT_NULL_VALUE">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal cross-origin request" id="CROSS_ORIGIN_REQUEST">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Text content found in binary only WebSocket" id="WEBSOCKET_TEXT_MESSAGE_NOT_ALLOWED">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Binary content found in text only WebSocket" id="WEBSOCKET_BINARY_MESSAGE_NOT_ALLOWED">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal WebSocket extension" id="WEBSOCKET_EXTENSION">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal number of frames per message" id="WEBSOCKET_FRAMES_PER_MESSAGE_COUNT">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal WebSocket binary message length" id="WEBSOCKET_BINARY_MESSAGE_LENGTH">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Plain text data does not comply with format settings" id="PLAINTEXT_FORMAT_SETTING">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="IP is blacklisted" id="BLACKLISTED_IP">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Threat Campaign detected" id="THREAT_CAMPAIGN_DETECTED">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal parameter array value" id="ILLEGAL_PARAM_ARRAY_VALUE">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="JSON data does not comply with JSON schema" id="JSON_SCHEMA">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Mandatory parameter is missing" id="MANDATORY_PARAMETER">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal parameter location" id="PARAMETER_LOCATION">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Bad Actor Detected" id="MALICIOUS_DEVICE">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Blocking Condition Detected" id="BLOCKING_CONDITION">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Mitigation action determined by Threat Analysis Platform" id="THREAT_ANALYSIS">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Leaked Credentials Detection" id="LEAKED_CREDENTIALS">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Illegal host name" id="HOSTNAME">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Host name mismatch" id="HOSTNAME_MISMATCH">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Bad Actor Convicted" id="CONVICTION">
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>false</learn>
+      <policy_builder_tracking>enabled</policy_builder_tracking>
+    </violation>
+    <violation name="Mandatory request body is missing" id="MANDATORY_REQUEST_BODY">
+      <alarm>false</alarm>
+      <block>false</block>
+      <learn>false</learn>
       <policy_builder_tracking>enabled</policy_builder_tracking>
     </violation>
     <violation name="Illegal repeated header" id="HEADER_REPEATED">
@@ -657,7 +654,7 @@ Policy Name was set to /Common/my_security. { audit: policy = /Common/my_securit
     <evasion_setting policy_builder_tracking="enabled" name="Bad unescape">disabled</evasion_setting>
     <http_protocol_compliance_setting policy_builder_tracking="disabled" name="POST request with Content-Length: 0">disabled</http_protocol_compliance_setting>
     <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Header name with no header value">disabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Several Content-Length headers">disabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Several Content-Length headers">enabled</http_protocol_compliance_setting>
     <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Chunked request with Content-Length header">disabled</http_protocol_compliance_setting>
     <http_protocol_compliance_setting policy_builder_tracking="disabled" name="Body in GET or HEAD requests">disabled</http_protocol_compliance_setting>
     <http_protocol_compliance_setting policy_builder_tracking="disabled" name="Bad multipart/form-data request parsing">disabled</http_protocol_compliance_setting>
@@ -670,7 +667,7 @@ Policy Name was set to /Common/my_security. { audit: policy = /Common/my_securit
     <http_protocol_compliance_setting policy_builder_tracking="disabled" name="Null in request">enabled</http_protocol_compliance_setting>
     <http_protocol_compliance_setting policy_builder_tracking="disabled" name="High ASCII characters in headers">disabled</http_protocol_compliance_setting>
     <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Unparsable request content">enabled</http_protocol_compliance_setting>
-    <http_protocol_compliance_setting maximum_headers="20" policy_builder_tracking="enabled" name="Check maximum number of headers">disabled</http_protocol_compliance_setting>
+    <http_protocol_compliance_setting maximum_headers="30" policy_builder_tracking="enabled" name="Check maximum number of headers">disabled</http_protocol_compliance_setting>
     <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Bad host header value">disabled</http_protocol_compliance_setting>
     <http_protocol_compliance_setting maximum_parameters="500" policy_builder_tracking="enabled" name="Check maximum number of parameters">disabled</http_protocol_compliance_setting>
     <http_protocol_compliance_setting policy_builder_tracking="enabled" name="Multiple host headers">disabled</http_protocol_compliance_setting>
@@ -687,136 +684,187 @@ Policy Name was set to /Common/my_security. { audit: policy = /Common/my_securit
     <web_services_security_settings policy_builder_tracking="enabled" name="XML_WSS_EXPIRED_TIMESTAMP">enabled</web_services_security_settings>
     <web_services_security_settings policy_builder_tracking="enabled" name="XML_WSS_TIMESTAMP_EXPIRATION_TOO_FAR_IN_THE_FUTURE">enabled</web_services_security_settings>
     <web_services_security_settings policy_builder_tracking="enabled" name="XML_WSS_UNSIGNED_TIMESTAMP">enabled</web_services_security_settings>
-    <response_page cause="Failed_login_honeypot_ajax">
+    <response_page cause="default">
       <response_type>default</response_type>
       <response_header>HTTP/1.1 200 OK
+
 Cache-Control: no-cache
+
 Pragma: no-cache
-Connection: close</response_header>
-      <response_html_code>&lt;html>&lt;head>&lt;title>Login Failed&lt;/title>&lt;/head>&lt;body>Username or password is incorrect. Please try to log in again.&lt;br>&lt;br>&lt;a href="javascript:history.back();">[Go Back]&lt;/a>&lt;/body>&lt;/html></response_html_code>
-      <ajax_action_type>alert_popup</ajax_action_type>
-      <ajax_popup_message>Login Failed. Username or password is incorrect. Please try to log in again.</ajax_popup_message>
-    </response_page>
-    <response_page cause="Ajax">
-      <response_type>default</response_type>
-      <response_header>HTTP/1.1 200 OK
-Cache-Control: no-cache
-Pragma: no-cache
+
 Connection: close</response_header>
       <response_html_code>&lt;html>&lt;head>&lt;title>Request Rejected&lt;/title>&lt;/head>&lt;body>The requested URL was rejected. Please consult with your administrator.&lt;br>&lt;br>Your support ID is: &lt;%TS.request.ID()%>&lt;br>&lt;br>&lt;a href='javascript:history.back();'>[Go Back]&lt;/a>&lt;/body>&lt;/html></response_html_code>
-      <ajax_action_type>alert_popup</ajax_action_type>
-      <ajax_popup_message>The requested URL was rejected. Please consult with your administrator. Your support ID is: &lt;%TS.request.ID()%></ajax_popup_message>
-    </response_page>
-    <response_page cause="Mobile">
-      <response_type>default</response_type>
-      <response_header>HTTP/1.1 403 Forbidden
-Cache-Control: no-cache
-Pragma: no-cache
-Content-type:application/json
-Connection: close</response_header>
-      <response_html_code>{
-	"supportID": "&lt;%TS.request.ID()%>",
-	"response_type": "&lt;%TS.response_type()%>"
-}</response_html_code>
-      <ajax_action_type>redirect</ajax_action_type>
-    </response_page>
-    <response_page cause="Captcha_fail">
-      <response_type>default</response_type>
-      <response_header>HTTP/1.1 200 OK
-Cache-Control: no-cache
-Pragma: no-cache
-Content-type: text/html</response_header>
-      <response_html_code>You have entered an invalid answer for the question. Please try again.&lt;br>%ASM.captcha.image% %ASM.captcha.audio% %ASM.captcha.change%&lt;br>&lt;b>What code is in the image?&lt;/b>%ASM.captcha.solution%&lt;br>%ASM.captcha.submit%&lt;br>&lt;br>Your support ID is: %ASM.captcha.support_id%.</response_html_code>
       <ajax_action_type>redirect</ajax_action_type>
     </response_page>
     <response_page cause="XML">
       <response_type>soap fault</response_type>
       <response_header>HTTP/1.1 200 OK
+
 Cache-Control: no-cache
+
 Pragma: no-cache
+
 Content-type: text/xml
+
 Connection: close</response_header>
       <response_html_code>&lt;?xml version='1.0' encoding='utf-8'?>&lt;soap:Envelope xmlns:soap='http://schemas.xmlsoap.org/soap/envelope/'>&lt;soap:Body>&lt;soap:Fault>&lt;faultcode>soap:Client&lt;/faultcode>&lt;faultstring>The requested operation was rejected. Please consult with your administrator.Your support ID is: &lt;%TS.request.ID()%>&lt;/faultstring>&lt;detail/>&lt;/soap:Fault>&lt;/soap:Body>&lt;/soap:Envelope></response_html_code>
       <ajax_action_type>redirect</ajax_action_type>
     </response_page>
-    <response_page cause="Leaked_credentials">
+    <response_page cause="Ajax">
       <response_type>default</response_type>
       <response_header>HTTP/1.1 200 OK
+
 Cache-Control: no-cache
+
 Pragma: no-cache
-Connection: close</response_header>
-      <response_html_code>&lt;html>&lt;head>&lt;title>Leaked Credentials Detected&lt;/title>&lt;/head>&lt;body>These username and password were found in the Leaked Credentials Data Base. These credentials may be used by attackers to compromise your account. Please change the password.&lt;br>&lt;br>&lt;a href="javascript:history.back();">[Go Back]&lt;/a>&lt;/body>&lt;/html></response_html_code>
-      <ajax_action_type>redirect</ajax_action_type>
-    </response_page>
-    <response_page cause="Captcha">
-      <response_type>default</response_type>
-      <response_header>HTTP/1.1 200 OK
-Cache-Control: no-cache
-Pragma: no-cache
-Content-type: text/html</response_header>
-      <response_html_code>This question is for testing whether you are a human visitor and to prevent automated spam submission.&lt;br>%ASM.captcha.image% %ASM.captcha.audio% %ASM.captcha.change%&lt;br>&lt;b>What code is in the image?&lt;/b>%ASM.captcha.solution%&lt;br>%ASM.captcha.submit%&lt;br>&lt;br>Your support ID is: %ASM.captcha.support_id%.</response_html_code>
-      <ajax_action_type>redirect</ajax_action_type>
-    </response_page>
-    <response_page cause="Ajax_login">
-      <response_type>default</response_type>
-      <response_header>HTTP/1.1 200 OK
-Cache-Control: no-cache
-Pragma: no-cache
+
 Connection: close</response_header>
       <response_html_code>&lt;html>&lt;head>&lt;title>Request Rejected&lt;/title>&lt;/head>&lt;body>The requested URL was rejected. Please consult with your administrator.&lt;br>&lt;br>Your support ID is: &lt;%TS.request.ID()%>&lt;br>&lt;br>&lt;a href='javascript:history.back();'>[Go Back]&lt;/a>&lt;/body>&lt;/html></response_html_code>
       <ajax_action_type>alert_popup</ajax_action_type>
       <ajax_popup_message>The requested URL was rejected. Please consult with your administrator. Your support ID is: &lt;%TS.request.ID()%></ajax_popup_message>
     </response_page>
-    <response_page cause="default">
+    <response_page cause="Ajax_login">
       <response_type>default</response_type>
       <response_header>HTTP/1.1 200 OK
+
 Cache-Control: no-cache
+
 Pragma: no-cache
+
 Connection: close</response_header>
       <response_html_code>&lt;html>&lt;head>&lt;title>Request Rejected&lt;/title>&lt;/head>&lt;body>The requested URL was rejected. Please consult with your administrator.&lt;br>&lt;br>Your support ID is: &lt;%TS.request.ID()%>&lt;br>&lt;br>&lt;a href='javascript:history.back();'>[Go Back]&lt;/a>&lt;/body>&lt;/html></response_html_code>
+      <ajax_action_type>alert_popup</ajax_action_type>
+      <ajax_popup_message>The requested URL was rejected. Please consult with your administrator. Your support ID is: &lt;%TS.request.ID()%></ajax_popup_message>
+    </response_page>
+    <response_page cause="Hijack">
+      <response_type>erase cookies</response_type>
+      <response_header>HTTP/1.1 200 OK
+
+Cache-Control: no-cache
+
+Pragma: no-cache
+
+Connection: close</response_header>
+      <response_html_code>&lt;html>&lt;head>&lt;title>Request Rejected&lt;/title>&lt;/head>&lt;body>The requested URL was rejected. Please consult with your administrator.&lt;br>&lt;br>Your support ID is: &lt;%TS.request.ID()%>&lt;br>&lt;br>&lt;a href='javascript:history.back();'>[Go Back]&lt;/a>&lt;%TS.script.erase_cookies%>&lt;/body>&lt;/html></response_html_code>
+      <ajax_action_type>redirect</ajax_action_type>
+    </response_page>
+    <response_page cause="Mobile">
+      <response_type>default</response_type>
+      <response_header>HTTP/1.1 403 Forbidden
+
+Cache-Control: no-cache
+
+Pragma: no-cache
+
+Content-type:application/json
+
+Connection: close</response_header>
+      <response_html_code>{
+
+	"supportID": "&lt;%TS.request.ID()%>",
+
+	"response_type": "&lt;%TS.response_type()%>"
+
+}</response_html_code>
+      <ajax_action_type>redirect</ajax_action_type>
+    </response_page>
+    <response_page cause="Captcha">
+      <response_type>default</response_type>
+      <response_header>HTTP/1.1 200 OK
+
+Cache-Control: no-cache
+
+Pragma: no-cache
+
+Content-type: text/html</response_header>
+      <response_html_code>This question is for testing whether you are a human visitor and to prevent automated spam submission.&lt;br>%ASM.captcha.image% %ASM.captcha.audio% %ASM.captcha.change%&lt;br>&lt;b>What code is in the image?&lt;/b>%ASM.captcha.solution%&lt;br>%ASM.captcha.submit%&lt;br>&lt;br>Your support ID is: %ASM.captcha.support_id%.</response_html_code>
+      <ajax_action_type>redirect</ajax_action_type>
+    </response_page>
+    <response_page cause="Captcha_fail">
+      <response_type>default</response_type>
+      <response_header>HTTP/1.1 200 OK
+
+Cache-Control: no-cache
+
+Pragma: no-cache
+
+Content-type: text/html</response_header>
+      <response_html_code>You have entered an invalid answer for the question. Please try again.&lt;br>%ASM.captcha.image% %ASM.captcha.audio% %ASM.captcha.change%&lt;br>&lt;b>What code is in the image?&lt;/b>%ASM.captcha.solution%&lt;br>%ASM.captcha.submit%&lt;br>&lt;br>Your support ID is: %ASM.captcha.support_id%.</response_html_code>
+      <ajax_action_type>redirect</ajax_action_type>
+    </response_page>
+    <response_page cause="Failed_login_honeypot">
+      <response_type>default</response_type>
+      <response_header>HTTP/1.1 200 OK
+
+Cache-Control: no-cache
+
+Pragma: no-cache
+
+Connection: close</response_header>
+      <response_html_code>&lt;html>&lt;head>&lt;title>Login Failed&lt;/title>&lt;/head>&lt;body>Username or password is incorrect. Please try to log in again.&lt;br>&lt;br>&lt;a href="javascript:history.back();">[Go Back]&lt;/a>&lt;/body>&lt;/html></response_html_code>
+      <ajax_action_type>redirect</ajax_action_type>
+    </response_page>
+    <response_page cause="Failed_login_honeypot_ajax">
+      <response_type>default</response_type>
+      <response_header>HTTP/1.1 200 OK
+
+Cache-Control: no-cache
+
+Pragma: no-cache
+
+Connection: close</response_header>
+      <response_html_code>&lt;html>&lt;head>&lt;title>Login Failed&lt;/title>&lt;/head>&lt;body>Username or password is incorrect. Please try to log in again.&lt;br>&lt;br>&lt;a href="javascript:history.back();">[Go Back]&lt;/a>&lt;/body>&lt;/html></response_html_code>
+      <ajax_action_type>alert_popup</ajax_action_type>
+      <ajax_popup_message>Login Failed. Username or password is incorrect. Please try to log in again.</ajax_popup_message>
+    </response_page>
+    <response_page cause="Leaked_credentials">
+      <response_type>default</response_type>
+      <response_header>HTTP/1.1 200 OK
+
+Cache-Control: no-cache
+
+Pragma: no-cache
+
+Connection: close</response_header>
+      <response_html_code>&lt;html>&lt;head>&lt;title>Leaked Credentials Detected&lt;/title>&lt;/head>&lt;body>These username and password were found in the Leaked Credentials Data Base. These credentials may be used by attackers to compromise your account. Please change the password.&lt;br>&lt;br>&lt;a href="javascript:history.back();">[Go Back]&lt;/a>&lt;/body>&lt;/html></response_html_code>
       <ajax_action_type>redirect</ajax_action_type>
     </response_page>
     <response_page cause="Leaked_credentials_ajax">
       <response_type>default</response_type>
       <response_header>HTTP/1.1 200 OK
+
 Cache-Control: no-cache
+
 Pragma: no-cache
+
 Connection: close</response_header>
       <response_html_code>&lt;html>&lt;head>&lt;title>Leaked Credentials Detected&lt;/title>&lt;/head>&lt;body>These username and password were found in the Leaked Credentials Data Base. These credentials may be used by attackers to compromise your account. Please change the password.&lt;br>&lt;br>&lt;a href="javascript:history.back();">[Go Back]&lt;/a>&lt;/body>&lt;/html></response_html_code>
       <ajax_action_type>alert_popup</ajax_action_type>
       <ajax_popup_message>These username and password were found in the Leaked Credentials Data Base. They maybe used by attackers to compromise your account. Please change password.</ajax_popup_message>
     </response_page>
-    <response_page cause="Failed_login_honeypot">
-      <response_type>default</response_type>
-      <response_header>HTTP/1.1 200 OK
-Cache-Control: no-cache
-Pragma: no-cache
-Connection: close</response_header>
-      <response_html_code>&lt;html>&lt;head>&lt;title>Login Failed&lt;/title>&lt;/head>&lt;body>Username or password is incorrect. Please try to log in again.&lt;br>&lt;br>&lt;a href="javascript:history.back();">[Go Back]&lt;/a>&lt;/body>&lt;/html></response_html_code>
-      <ajax_action_type>redirect</ajax_action_type>
-    </response_page>
-    <response_page cause="Hijack">
-      <response_type>erase cookies</response_type>
-      <response_header>HTTP/1.1 200 OK
-Cache-Control: no-cache
-Pragma: no-cache
-Connection: close</response_header>
-      <response_html_code>&lt;html>&lt;head>&lt;title>Request Rejected&lt;/title>&lt;/head>&lt;body>The requested URL was rejected. Please consult with your administrator.&lt;br>&lt;br>Your support ID is: &lt;%TS.request.ID()%>&lt;br>&lt;br>&lt;a href='javascript:history.back();'>[Go Back]&lt;/a>&lt;%TS.script.erase_cookies%>&lt;/body>&lt;/html></response_html_code>
-      <ajax_action_type>redirect</ajax_action_type>
-    </response_page>
     <response_page cause="graphql">
       <response_type>default</response_type>
       <response_header>HTTP/1.1 200 OK
+
 Cache-Control: no-cache
+
 Pragma: no-cache
+
 Connection: close</response_header>
       <response_html_code>{
+
   "errors": [
+
     {
+
       "message": "The requested query was rejected. Please consult with your administrator. Your support ID is: &lt;%TS.request.ID()%>"
+
     }
+
   ]
+
 }</response_html_code>
+      <ajax_action_type>redirect</ajax_action_type>
     </response_page>
     <response_page_settings>
       <flg_ajax_enabled>disabled</flg_ajax_enabled>
@@ -1979,6 +2027,21 @@ Connection: close</response_header>
       <metachar character="0xff">allow</metachar>
     </character_set>
   </plain_text_profiles>
+  <graphql_profiles>
+    <graphql_profile name="Default">
+      <description>Default GraphQL Profile</description>
+      <check_element_metachars>true</check_element_metachars>
+      <check_attribute_metachars>false</check_attribute_metachars>
+      <check_signatures>true</check_signatures>
+      <check_param_value_length>false</check_param_value_length>
+      <defense_setting enabled="false" name="Maximum Total Length">100000</defense_setting>
+      <defense_setting enabled="false" name="Maximum Value Length">10000</defense_setting>
+      <defense_setting enabled="false" name="Maximum Structure Depth">10</defense_setting>
+      <defense_setting enabled="false" name="Maximum Batched Queries">10</defense_setting>
+      <defense_setting enabled="true" name="Tolerate Parsing Warnings">1</defense_setting>
+      <defense_setting enabled="true" name="Allow Introspection Queries">0</defense_setting>
+    </graphql_profile>
+  </graphql_profiles>
   <file_types>
     <file_type type="wildcard" name="*">
       <wildcard_order>1</wildcard_order>
@@ -1989,60 +2052,60 @@ Connection: close</response_header>
       <post_data_length>4096</post_data_length>
       <check_response>false</check_response>
       <in_staging>false</in_staging>
-      <last_updated>2023-02-11T02:25:27Z</last_updated>
+      <last_updated>2022-05-13T01:45:00Z</last_updated>
       <check_url_length>false</check_url_length>
       <check_request_length>false</check_request_length>
       <check_query_string_length>false</check_query_string_length>
       <check_post_data_length>false</check_post_data_length>
     </file_type>
     <disallowed_file_types>
-      <file_type name="p7b"/>
-      <file_type name="p12"/>
-      <file_type name="htr"/>
-      <file_type name="cer"/>
-      <file_type name="ini"/>
       <file_type name="bak"/>
+      <file_type name="bat"/>
+      <file_type name="bck"/>
+      <file_type name="bin"/>
+      <file_type name="bkp"/>
+      <file_type name="cer"/>
+      <file_type name="cfg"/>
+      <file_type name="cgi"/>
+      <file_type name="cmd"/>
+      <file_type name="com"/>
+      <file_type name="conf"/>
+      <file_type name="config"/>
+      <file_type name="crt"/>
+      <file_type name="dat"/>
+      <file_type name="der"/>
       <file_type name="dll"/>
       <file_type name="eml"/>
-      <file_type name="nws"/>
-      <file_type name="der"/>
-      <file_type name="stm"/>
-      <file_type name="key"/>
-      <file_type name="idq"/>
-      <file_type name="log"/>
-      <file_type name="sav"/>
-      <file_type name="hta"/>
-      <file_type name="crt"/>
-      <file_type name="idc"/>
-      <file_type name="cmd"/>
-      <file_type name="old"/>
-      <file_type name="pem"/>
-      <file_type name="com"/>
-      <file_type name="wmz"/>
-      <file_type name="shtm"/>
-      <file_type name="htw"/>
-      <file_type name="temp"/>
-      <file_type name="ida"/>
-      <file_type name="config"/>
-      <file_type name="msi"/>
-      <file_type name="bkp"/>
-      <file_type name="reg"/>
-      <file_type name="pfx"/>
-      <file_type name="bat"/>
-      <file_type name="cgi"/>
-      <file_type name="save"/>
-      <file_type name="conf"/>
-      <file_type name="tmp"/>
-      <file_type name="dat"/>
-      <file_type name="cfg"/>
-      <file_type name="printer"/>
-      <file_type name="bck"/>
-      <file_type name="p7c"/>
-      <file_type name="sys"/>
-      <file_type name="pol"/>
-      <file_type name="shtml"/>
       <file_type name="exe"/>
-      <file_type name="bin"/>
+      <file_type name="hta"/>
+      <file_type name="htr"/>
+      <file_type name="htw"/>
+      <file_type name="ida"/>
+      <file_type name="idc"/>
+      <file_type name="idq"/>
+      <file_type name="ini"/>
+      <file_type name="key"/>
+      <file_type name="log"/>
+      <file_type name="msi"/>
+      <file_type name="nws"/>
+      <file_type name="old"/>
+      <file_type name="p12"/>
+      <file_type name="p7b"/>
+      <file_type name="p7c"/>
+      <file_type name="pem"/>
+      <file_type name="pfx"/>
+      <file_type name="pol"/>
+      <file_type name="printer"/>
+      <file_type name="reg"/>
+      <file_type name="sav"/>
+      <file_type name="save"/>
+      <file_type name="shtm"/>
+      <file_type name="shtml"/>
+      <file_type name="stm"/>
+      <file_type name="sys"/>
+      <file_type name="temp"/>
+      <file_type name="tmp"/>
+      <file_type name="wmz"/>
     </disallowed_file_types>
   </file_types>
   <urls>
@@ -2058,7 +2121,7 @@ Connection: close</response_header>
       <check_metachars>false</check_metachars>
       <check_methods>false</check_methods>
       <in_staging>false</in_staging>
-      <last_updated>2023-02-11T02:25:27Z</last_updated>
+      <last_updated>2022-05-13T01:45:04Z</last_updated>
       <clickjacking_protection>
         <enabled>false</enabled>
         <allow_rendering_in_frames>Never</allow_rendering_in_frames>
@@ -2087,13 +2150,6 @@ Connection: close</response_header>
         <enforcement_type>apply_value_signatures</enforcement_type>
       </content_profile>
       <content_profile>
-        <profile_name>Default</profile_name>
-        <header_name>Content-Type</header_name>
-        <header_value>*json*</header_value>
-        <header_order>2</header_order>
-        <enforcement_type>json</enforcement_type>
-      </content_profile>
-      <content_profile>
         <header_name>Content-Type</header_name>
         <header_value>*form*</header_value>
         <header_order>1</header_order>
@@ -2105,6 +2161,13 @@ Connection: close</response_header>
         <header_value>*xml*</header_value>
         <header_order>3</header_order>
         <enforcement_type>xml</enforcement_type>
+      </content_profile>
+      <content_profile>
+        <profile_name>Default</profile_name>
+        <header_name>Content-Type</header_name>
+        <header_value>*json*</header_value>
+        <header_order>2</header_order>
+        <enforcement_type>json</enforcement_type>
       </content_profile>
     </url>
     <url method="*" protocol="HTTP" type="wildcard" name="*">
@@ -2119,7 +2182,7 @@ Connection: close</response_header>
       <check_metachars>false</check_metachars>
       <check_methods>false</check_methods>
       <in_staging>false</in_staging>
-      <last_updated>2023-02-11T02:25:27Z</last_updated>
+      <last_updated>2022-05-13T01:45:04Z</last_updated>
       <clickjacking_protection>
         <enabled>false</enabled>
         <allow_rendering_in_frames>Never</allow_rendering_in_frames>
@@ -2148,11 +2211,10 @@ Connection: close</response_header>
         <enforcement_type>apply_value_signatures</enforcement_type>
       </content_profile>
       <content_profile>
-        <profile_name>Default</profile_name>
         <header_name>Content-Type</header_name>
-        <header_value>*json*</header_value>
-        <header_order>2</header_order>
-        <enforcement_type>json</enforcement_type>
+        <header_value>*form*</header_value>
+        <header_order>1</header_order>
+        <enforcement_type>http</enforcement_type>
       </content_profile>
       <content_profile>
         <profile_name>Default</profile_name>
@@ -2162,10 +2224,11 @@ Connection: close</response_header>
         <enforcement_type>xml</enforcement_type>
       </content_profile>
       <content_profile>
+        <profile_name>Default</profile_name>
         <header_name>Content-Type</header_name>
-        <header_value>*form*</header_value>
-        <header_order>1</header_order>
-        <enforcement_type>http</enforcement_type>
+        <header_value>*json*</header_value>
+        <header_order>2</header_order>
+        <enforcement_type>json</enforcement_type>
       </content_profile>
     </url>
     <character_set>
@@ -2435,7 +2498,7 @@ Connection: close</response_header>
       <user_config_level>advanced</user_config_level>
       <check_metachars>false</check_metachars>
       <in_staging>false</in_staging>
-      <last_updated>2023-02-11T02:25:27Z</last_updated>
+      <last_updated>2022-05-13T01:45:04Z</last_updated>
       <cors_enforcement_enable>false</cors_enforcement_enable>
       <allow_cors>false</allow_cors>
       <wildcard_includes_slash>true</wildcard_includes_slash>
@@ -2462,7 +2525,7 @@ Connection: close</response_header>
       <user_config_level>advanced</user_config_level>
       <check_metachars>false</check_metachars>
       <in_staging>false</in_staging>
-      <last_updated>2023-02-11T02:25:27Z</last_updated>
+      <last_updated>2022-05-13T01:45:04Z</last_updated>
       <cors_enforcement_enable>false</cors_enforcement_enable>
       <allow_cors>false</allow_cors>
       <wildcard_includes_slash>true</wildcard_includes_slash>
@@ -2499,7 +2562,7 @@ Connection: close</response_header>
       <match_regular_expression></match_regular_expression>
       <is_sensitive>false</is_sensitive>
       <in_staging>false</in_staging>
-      <last_updated>2023-02-11T02:25:27Z</last_updated>
+      <last_updated>2022-05-13T01:45:00Z</last_updated>
       <parameter_name_metachars>
         <check_metachars>false</check_metachars>
       </parameter_name_metachars>
@@ -2540,7 +2603,7 @@ Connection: close</response_header>
       <match_regular_expression></match_regular_expression>
       <is_sensitive>false</is_sensitive>
       <in_staging>false</in_staging>
-      <last_updated>2023-02-11T02:25:27Z</last_updated>
+      <last_updated>2022-05-13T01:45:00Z</last_updated>
       <parameter_name_metachars>
         <check_metachars>false</check_metachars>
       </parameter_name_metachars>
@@ -3093,8 +3156,11 @@ Connection: close</response_header>
       <response_page>
         <response_type>default</response_type>
         <response_header>HTTP/1.1 200 OK
+
 Cache-Control: no-cache
+
 Pragma: no-cache
+
 Connection: close</response_header>
         <response_html_code>&lt;html>&lt;head>&lt;title>Request Rejected&lt;/title>&lt;/head>&lt;body>The requested URL was rejected. Please consult with your administrator.&lt;br>&lt;br>Your support ID is: &lt;%TS.request.ID()%>&lt;br>&lt;br>&lt;a href='javascript:history.back();'>[Go Back]&lt;/a>&lt;/body>&lt;/html></response_html_code>
         <ajax_action_type>redirect</ajax_action_type>
@@ -3102,11 +3168,11 @@ Connection: close</response_header>
     </flow_access>
   </flows>
   <methods>
-    <method name="GET">
+    <method name="HEAD">
       <act_as>GET</act_as>
       <user_config_level>basic</user_config_level>
     </method>
-    <method name="HEAD">
+    <method name="GET">
       <act_as>GET</act_as>
       <user_config_level>basic</user_config_level>
     </method>
@@ -3394,7 +3460,127 @@ Connection: close</response_header>
       <block>true</block>
       <learn>true</learn>
     </signature_set>
-    <enable_staging>true</enable_staging>
+    <signature_set>
+      <set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="JavaScript Signatures (High/Medium Accuracy)" id="300000000">
+        <flg_alarm_default>1</flg_alarm_default>
+        <flg_learn_default>1</flg_learn_default>
+        <set_group_name>User-defined</set_group_name>
+        <flg_reject_default>1</flg_reject_default>
+        <flg_assign_to_policy_default>0</flg_assign_to_policy_default>
+        <set_flg_is_hidden>0</set_flg_is_hidden>
+        <set_name>JavaScript Signatures (High/Medium Accuracy)</set_name>
+        <set_flg_is_user_defined>1</set_flg_is_user_defined>
+        <flg_is_manual>0</flg_is_manual>
+        <filter>
+          <flg_is_hidden>0</flg_is_hidden>
+          <accuracy_op>ge</accuracy_op>
+          <accuracy_val>2</accuracy_val>
+        </filter>
+        <systems>
+          <system_name>JavaScript</system_name>
+        </systems>
+      </set>
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+    </signature_set>
+    <signature_set>
+      <set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Nginx Signatures (High/Medium Accuracy)" id="300000001">
+        <flg_alarm_default>1</flg_alarm_default>
+        <flg_learn_default>1</flg_learn_default>
+        <set_group_name>User-defined</set_group_name>
+        <flg_reject_default>1</flg_reject_default>
+        <flg_assign_to_policy_default>0</flg_assign_to_policy_default>
+        <set_flg_is_hidden>0</set_flg_is_hidden>
+        <set_name>Nginx Signatures (High/Medium Accuracy)</set_name>
+        <set_flg_is_user_defined>1</set_flg_is_user_defined>
+        <flg_is_manual>0</flg_is_manual>
+        <filter>
+          <flg_is_hidden>0</flg_is_hidden>
+          <accuracy_op>ge</accuracy_op>
+          <accuracy_val>2</accuracy_val>
+        </filter>
+        <systems>
+          <system_name>Nginx</system_name>
+        </systems>
+      </set>
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+    </signature_set>
+    <signature_set>
+      <set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Apache Tomcat Signatures (High/Medium Accuracy)" id="300000002">
+        <flg_alarm_default>1</flg_alarm_default>
+        <flg_learn_default>1</flg_learn_default>
+        <set_group_name>User-defined</set_group_name>
+        <flg_reject_default>1</flg_reject_default>
+        <flg_assign_to_policy_default>0</flg_assign_to_policy_default>
+        <set_flg_is_hidden>0</set_flg_is_hidden>
+        <set_name>Apache Tomcat Signatures (High/Medium Accuracy)</set_name>
+        <set_flg_is_user_defined>1</set_flg_is_user_defined>
+        <flg_is_manual>0</flg_is_manual>
+        <filter>
+          <flg_is_hidden>0</flg_is_hidden>
+          <accuracy_op>ge</accuracy_op>
+          <accuracy_val>2</accuracy_val>
+        </filter>
+        <systems>
+          <system_name>Apache Tomcat</system_name>
+        </systems>
+      </set>
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+    </signature_set>
+    <signature_set>
+      <set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Java Servlets/JSP Signatures (High/Medium Accuracy)" id="300000003">
+        <flg_alarm_default>1</flg_alarm_default>
+        <flg_learn_default>1</flg_learn_default>
+        <set_group_name>User-defined</set_group_name>
+        <flg_reject_default>1</flg_reject_default>
+        <flg_assign_to_policy_default>0</flg_assign_to_policy_default>
+        <set_flg_is_hidden>0</set_flg_is_hidden>
+        <set_name>Java Servlets/JSP Signatures (High/Medium Accuracy)</set_name>
+        <set_flg_is_user_defined>1</set_flg_is_user_defined>
+        <flg_is_manual>0</flg_is_manual>
+        <filter>
+          <flg_is_hidden>0</flg_is_hidden>
+          <accuracy_op>ge</accuracy_op>
+          <accuracy_val>2</accuracy_val>
+        </filter>
+        <systems>
+          <system_name>Java Servlets/JSP</system_name>
+        </systems>
+      </set>
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+    </signature_set>
+    <signature_set>
+      <set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Apache/NCSA HTTP Server Signatures (High/Medium Accuracy)" id="300000004">
+        <flg_alarm_default>1</flg_alarm_default>
+        <flg_learn_default>1</flg_learn_default>
+        <set_group_name>User-defined</set_group_name>
+        <flg_reject_default>1</flg_reject_default>
+        <flg_assign_to_policy_default>0</flg_assign_to_policy_default>
+        <set_flg_is_hidden>0</set_flg_is_hidden>
+        <set_name>Apache/NCSA HTTP Server Signatures (High/Medium Accuracy)</set_name>
+        <set_flg_is_user_defined>1</set_flg_is_user_defined>
+        <flg_is_manual>0</flg_is_manual>
+        <filter>
+          <flg_is_hidden>0</flg_is_hidden>
+          <accuracy_op>ge</accuracy_op>
+          <accuracy_val>2</accuracy_val>
+        </filter>
+        <systems>
+          <system_name>Apache/NCSA HTTP Server</system_name>
+        </systems>
+      </set>
+      <alarm>true</alarm>
+      <block>true</block>
+      <learn>true</learn>
+    </signature_set>
+    <enable_staging>false</enable_staging>
     <place_signatures_in_staging>true</place_signatures_in_staging>
     <sigfile_timestamp>2021-08-18 15:32:15</sigfile_timestamp>
     <min_accuracy_for_auto_added_signatures>Medium</min_accuracy_for_auto_added_signatures>
@@ -24498,8 +24684,8 @@ Connection: close</response_header>
     <learn_only_from_non_bot_traffic>true</learn_only_from_non_bot_traffic>
     <fully_automatic>false</fully_automatic>
     <response_code>1xx</response_code>
-    <response_code>3xx</response_code>
     <response_code>2xx</response_code>
+    <response_code>3xx</response_code>
   </policy_builder>
   <policy_builder_cookie>
     <learn_cookies>When Violation Detected</learn_cookies>
@@ -24538,16 +24724,16 @@ Connection: close</response_header>
     <classify_urls>false</classify_urls>
     <classify_websocket_urls>false</classify_websocket_urls>
     <set_method_override_on_url>false</set_method_override_on_url>
-    <filetype>pcx</filetype>
-    <filetype>ico</filetype>
-    <filetype>pdf</filetype>
-    <filetype>swf</filetype>
-    <filetype>gif</filetype>
-    <filetype>png</filetype>
-    <filetype>jpeg</filetype>
     <filetype>bmp</filetype>
-    <filetype>wav</filetype>
+    <filetype>gif</filetype>
+    <filetype>ico</filetype>
+    <filetype>jpeg</filetype>
     <filetype>jpg</filetype>
+    <filetype>pcx</filetype>
+    <filetype>pdf</filetype>
+    <filetype>png</filetype>
+    <filetype>swf</filetype>
+    <filetype>wav</filetype>
   </policy_builder_url>
   <policy_builder_header>
     <valid_host_names>false</valid_host_names>
@@ -24577,60 +24763,72 @@ Connection: close</response_header>
   <geolocation>
     <enforcement_mode>
       <mode>disallow</mode>
+      <location>
+        <country_code>A1</country_code>
+      </location>
+      <location>
+        <country_code>CN</country_code>
+      </location>
+      <location>
+        <country_code>NL</country_code>
+      </location>
+      <location>
+        <country_code>RU</country_code>
+      </location>
     </enforcement_mode>
   </geolocation>
   <ip_reputation>
     <enabled>false</enabled>
-    <category name="DENIAL_OF_SERVICE">
-      <alarm>false</alarm>
-      <block>false</block>
-    </category>
-    <category name="CLOUD_SERVICES">
-      <alarm>false</alarm>
-      <block>false</block>
-    </category>
-    <category name="WEB_ATTACKS">
-      <alarm>false</alarm>
-      <block>false</block>
-    </category>
-    <category name="INFECTED_SOURCES">
-      <alarm>false</alarm>
-      <block>false</block>
-    </category>
-    <category name="ANONYMOUS_PROXIES">
-      <alarm>false</alarm>
+    <category name="SPAM_SOURCES">
+      <alarm>true</alarm>
       <block>false</block>
     </category>
     <category name="WINDOWS_EXPLOITS">
-      <alarm>false</alarm>
-      <block>false</block>
+      <alarm>true</alarm>
+      <block>true</block>
     </category>
-    <category name="MOBILE_THREATS">
-      <alarm>false</alarm>
-      <block>false</block>
-    </category>
-    <category name="PHISHING_PROXIES">
-      <alarm>false</alarm>
-      <block>false</block>
+    <category name="WEB_ATTACKS">
+      <alarm>true</alarm>
+      <block>true</block>
     </category>
     <category name="BOT_NETS">
-      <alarm>false</alarm>
-      <block>false</block>
+      <alarm>true</alarm>
+      <block>true</block>
     </category>
-    <category name="SPAM_SOURCES">
-      <alarm>false</alarm>
-      <block>false</block>
+    <category name="SCANNERS">
+      <alarm>true</alarm>
+      <block>true</block>
     </category>
-    <category name="TOR_PROXIES">
-      <alarm>false</alarm>
+    <category name="DENIAL_OF_SERVICE">
+      <alarm>true</alarm>
+      <block>true</block>
+    </category>
+    <category name="INFECTED_SOURCES">
+      <alarm>true</alarm>
+      <block>true</block>
+    </category>
+    <category name="PHISHING_PROXIES">
+      <alarm>true</alarm>
+      <block>true</block>
+    </category>
+    <category name="ANONYMOUS_PROXIES">
+      <alarm>true</alarm>
       <block>false</block>
     </category>
     <category name="NETWORKS">
       <alarm>false</alarm>
       <block>false</block>
     </category>
-    <category name="SCANNERS">
-      <alarm>false</alarm>
+    <category name="CLOUD_SERVICES">
+      <alarm>true</alarm>
+      <block>false</block>
+    </category>
+    <category name="MOBILE_THREATS">
+      <alarm>true</alarm>
+      <block>true</block>
+    </category>
+    <category name="TOR_PROXIES">
+      <alarm>true</alarm>
       <block>false</block>
     </category>
   </ip_reputation>
@@ -24638,36 +24836,12 @@ Connection: close</response_header>
     <enabled>false</enabled>
     <user_source>APM Usernames and Session ID</user_source>
   </database_protection>
-  <header type="explicit" name="referer">
-    <is_mandatory>false</is_mandatory>
-    <check_signatures>true</check_signatures>
-    <is_base64>false</is_base64>
-    <percent_normalization>false</percent_normalization>
-    <uri_normalization>true</uri_normalization>
-    <html_normalization>false</html_normalization>
-    <enable_normalization_violation>true</enable_normalization_violation>
-    <is_default>true</is_default>
-    <mask_value>false</mask_value>
-    <allow_repeated>true</allow_repeated>
-  </header>
   <header type="wildcard" name="*">
     <wildcard_order>1</wildcard_order>
     <is_mandatory>false</is_mandatory>
     <check_signatures>true</check_signatures>
     <is_base64>false</is_base64>
     <percent_normalization>true</percent_normalization>
-    <uri_normalization>false</uri_normalization>
-    <html_normalization>false</html_normalization>
-    <enable_normalization_violation>false</enable_normalization_violation>
-    <is_default>true</is_default>
-    <mask_value>false</mask_value>
-    <allow_repeated>true</allow_repeated>
-  </header>
-  <header type="explicit" name="cookie">
-    <is_mandatory>false</is_mandatory>
-    <check_signatures>false</check_signatures>
-    <is_base64>false</is_base64>
-    <percent_normalization>false</percent_normalization>
     <uri_normalization>false</uri_normalization>
     <html_normalization>false</html_normalization>
     <enable_normalization_violation>false</enable_normalization_violation>
@@ -24686,6 +24860,30 @@ Connection: close</response_header>
     <is_default>true</is_default>
     <mask_value>true</mask_value>
     <allow_repeated>false</allow_repeated>
+  </header>
+  <header type="explicit" name="cookie">
+    <is_mandatory>false</is_mandatory>
+    <check_signatures>false</check_signatures>
+    <is_base64>false</is_base64>
+    <percent_normalization>false</percent_normalization>
+    <uri_normalization>false</uri_normalization>
+    <html_normalization>false</html_normalization>
+    <enable_normalization_violation>false</enable_normalization_violation>
+    <is_default>true</is_default>
+    <mask_value>false</mask_value>
+    <allow_repeated>true</allow_repeated>
+  </header>
+  <header type="explicit" name="referer">
+    <is_mandatory>false</is_mandatory>
+    <check_signatures>true</check_signatures>
+    <is_base64>false</is_base64>
+    <percent_normalization>false</percent_normalization>
+    <uri_normalization>true</uri_normalization>
+    <html_normalization>false</html_normalization>
+    <enable_normalization_violation>true</enable_normalization_violation>
+    <is_default>true</is_default>
+    <mask_value>false</mask_value>
+    <allow_repeated>true</allow_repeated>
   </header>
   <header type="explicit" name="transfer-encoding">
     <is_mandatory>false</is_mandatory>
@@ -24717,7 +24915,7 @@ Connection: close</response_header>
     <identify_device>false</identify_device>
     <maximum_prevention_time>3600</maximum_prevention_time>
     <flg_enabled>false</flg_enabled>
-    <last_updated>1651273800</last_updated>
+    <last_updated>1652406300</last_updated>
     <detection_threshold_credentials_stuffing_matches_reached>100</detection_threshold_credentials_stuffing_matches_reached>
     <detection_threshold_action>alarm-and-captcha</detection_threshold_action>
     <login_attempts_from_the_same_user_threshold>3</login_attempts_from_the_same_user_threshold>
@@ -24739,16 +24937,25 @@ Connection: close</response_header>
     <leaked_credentials_detection>false</leaked_credentials_detection>
     <leaked_credentials_action>alarm-and-blocking-page</leaked_credentials_action>
   </brute_force>
+  <server_technologies>
+    <server_technology>
+      <server_technology_name>AngularJS</server_technology_name>
+    </server_technology>
+    <server_technology>
+      <server_technology_name>Nginx</server_technology_name>
+    </server_technology>
+    <server_technology>
+      <server_technology_name>Apache Tomcat</server_technology_name>
+    </server_technology>
+    <server_technology>
+      <server_technology_name>Java Servlets/JSP</server_technology_name>
+    </server_technology>
+    <server_technology>
+      <server_technology_name>Apache/NCSA HTTP Server</server_technology_name>
+    </server_technology>
+  </server_technologies>
   <sections>
-    <section type="Policy Building Process">
-      <parent_inheritance_status>none</parent_inheritance_status>
-      <child_inheritance_status>N/A</child_inheritance_status>
-    </section>
-    <section type="Threat Campaigns">
-      <parent_inheritance_status>none</parent_inheritance_status>
-      <child_inheritance_status>N/A</child_inheritance_status>
-    </section>
-    <section type="Parameters">
+    <section type="General Policy Settings">
       <parent_inheritance_status>none</parent_inheritance_status>
       <child_inheritance_status>N/A</child_inheritance_status>
     </section>
@@ -24756,55 +24963,7 @@ Connection: close</response_header>
       <parent_inheritance_status>none</parent_inheritance_status>
       <child_inheritance_status>N/A</child_inheritance_status>
     </section>
-    <section type="CSRF Protection">
-      <parent_inheritance_status>N/A</parent_inheritance_status>
-      <child_inheritance_status>N/A</child_inheritance_status>
-    </section>
-    <section type="General Policy Settings">
-      <parent_inheritance_status>none</parent_inheritance_status>
-      <child_inheritance_status>N/A</child_inheritance_status>
-    </section>
-    <section type="Antivirus">
-      <parent_inheritance_status>N/A</parent_inheritance_status>
-      <child_inheritance_status>N/A</child_inheritance_status>
-    </section>
-    <section type="Redirection Protection">
-      <parent_inheritance_status>N/A</parent_inheritance_status>
-      <child_inheritance_status>N/A</child_inheritance_status>
-    </section>
-    <section type="URLs">
-      <parent_inheritance_status>N/A</parent_inheritance_status>
-      <child_inheritance_status>N/A</child_inheritance_status>
-    </section>
-    <section type="File Types">
-      <parent_inheritance_status>none</parent_inheritance_status>
-      <child_inheritance_status>N/A</child_inheritance_status>
-    </section>
     <section type="WebSocket Protocol Compliance">
-      <parent_inheritance_status>none</parent_inheritance_status>
-      <child_inheritance_status>N/A</child_inheritance_status>
-    </section>
-    <section type="IP Addresses and Geolocations">
-      <parent_inheritance_status>none</parent_inheritance_status>
-      <child_inheritance_status>N/A</child_inheritance_status>
-    </section>
-    <section type="Custom Violations">
-      <parent_inheritance_status>none</parent_inheritance_status>
-      <child_inheritance_status>N/A</child_inheritance_status>
-    </section>
-    <section type="Server Technologies">
-      <parent_inheritance_status>none</parent_inheritance_status>
-      <child_inheritance_status>N/A</child_inheritance_status>
-    </section>
-    <section type="Cookies">
-      <parent_inheritance_status>N/A</parent_inheritance_status>
-      <child_inheritance_status>N/A</child_inheritance_status>
-    </section>
-    <section type="Sessions and Logins">
-      <parent_inheritance_status>N/A</parent_inheritance_status>
-      <child_inheritance_status>N/A</child_inheritance_status>
-    </section>
-    <section type="Headers">
       <parent_inheritance_status>none</parent_inheritance_status>
       <child_inheritance_status>N/A</child_inheritance_status>
     </section>
@@ -24812,15 +24971,71 @@ Connection: close</response_header>
       <parent_inheritance_status>none</parent_inheritance_status>
       <child_inheritance_status>N/A</child_inheritance_status>
     </section>
-    <section type="Content Profiles">
-      <parent_inheritance_status>N/A</parent_inheritance_status>
+    <section type="Evasion Techniques">
+      <parent_inheritance_status>none</parent_inheritance_status>
+      <child_inheritance_status>N/A</child_inheritance_status>
+    </section>
+    <section type="File Types">
+      <parent_inheritance_status>none</parent_inheritance_status>
+      <child_inheritance_status>N/A</child_inheritance_status>
+    </section>
+    <section type="Parameters">
+      <parent_inheritance_status>none</parent_inheritance_status>
+      <child_inheritance_status>N/A</child_inheritance_status>
+    </section>
+    <section type="Headers">
+      <parent_inheritance_status>none</parent_inheritance_status>
+      <child_inheritance_status>N/A</child_inheritance_status>
+    </section>
+    <section type="IP Addresses and Geolocations">
+      <parent_inheritance_status>none</parent_inheritance_status>
       <child_inheritance_status>N/A</child_inheritance_status>
     </section>
     <section type="Data Guard">
       <parent_inheritance_status>none</parent_inheritance_status>
       <child_inheritance_status>N/A</child_inheritance_status>
     </section>
-    <section type="Evasion Techniques">
+    <section type="Policy Building Process">
+      <parent_inheritance_status>none</parent_inheritance_status>
+      <child_inheritance_status>N/A</child_inheritance_status>
+    </section>
+    <section type="Custom Violations">
+      <parent_inheritance_status>none</parent_inheritance_status>
+      <child_inheritance_status>N/A</child_inheritance_status>
+    </section>
+    <section type="URLs">
+      <parent_inheritance_status>N/A</parent_inheritance_status>
+      <child_inheritance_status>N/A</child_inheritance_status>
+    </section>
+    <section type="Sessions and Logins">
+      <parent_inheritance_status>N/A</parent_inheritance_status>
+      <child_inheritance_status>N/A</child_inheritance_status>
+    </section>
+    <section type="Cookies">
+      <parent_inheritance_status>N/A</parent_inheritance_status>
+      <child_inheritance_status>N/A</child_inheritance_status>
+    </section>
+    <section type="Redirection Protection">
+      <parent_inheritance_status>N/A</parent_inheritance_status>
+      <child_inheritance_status>N/A</child_inheritance_status>
+    </section>
+    <section type="CSRF Protection">
+      <parent_inheritance_status>N/A</parent_inheritance_status>
+      <child_inheritance_status>N/A</child_inheritance_status>
+    </section>
+    <section type="Antivirus">
+      <parent_inheritance_status>N/A</parent_inheritance_status>
+      <child_inheritance_status>N/A</child_inheritance_status>
+    </section>
+    <section type="Content Profiles">
+      <parent_inheritance_status>N/A</parent_inheritance_status>
+      <child_inheritance_status>N/A</child_inheritance_status>
+    </section>
+    <section type="Server Technologies">
+      <parent_inheritance_status>none</parent_inheritance_status>
+      <child_inheritance_status>N/A</child_inheritance_status>
+    </section>
+    <section type="Threat Campaigns">
       <parent_inheritance_status>none</parent_inheritance_status>
       <child_inheritance_status>N/A</child_inheritance_status>
     </section>
