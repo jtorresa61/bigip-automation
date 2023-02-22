@@ -45,6 +45,9 @@ template: |
             "policyWAF": {
               "bigip": "/Common/my_security"
             },
+            "securityLogProfiles": [
+              "secLogLocal"
+            ],
             "profileDOS": {
                         "use": "DOS_Profile"
             },
