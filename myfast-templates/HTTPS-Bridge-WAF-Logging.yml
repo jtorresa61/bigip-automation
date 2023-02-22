@@ -46,7 +46,7 @@ template: |
               "bigip": "/Common/my_security"
             },
             "securityLogProfiles": [
-              "secLogLocal"
+              "use:" "secLogLocal"
             ],
             "profileDOS": {
                         "use": "DOS_Profile"
