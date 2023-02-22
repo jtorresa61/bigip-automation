@@ -46,7 +46,45 @@ template: |
               "bigip": "/Common/my_security"
             },
             "securityLogProfiles": [
-              "secLogLocal"
+              "secLogLocal": {
+                "class": "Security_Log_Profile",
+                "application": {
+                    "storageFilter": {
+                        "logicalOperation": "and",
+                        "requestType": "all",
+                        "responseCodes": [
+                            "100",
+                            "200",
+                            "300",
+                            "400"
+                        ],
+                        "protocols": [
+                            "https",
+                            "ws"
+                        ],
+                        "httpMethods": [
+                            "ACL",
+                            "GET",
+                            "POLL",
+                            "POST"
+                        ],
+                        "requestContains": {
+                            "searchIn": "search-in-headers",
+                            "value": "The header string to search for"
+                        },
+                        "loginResults": [
+                            "login-result-successful",
+                            "login-result-failed"
+                        ]
+                    },
+                    "guaranteeLoggingEnabled": true,
+                    "guaranteeResponseLoggingEnabled": true,
+                    "maxHeaderSize": 200,
+                    "maxQuerySize": 1040,
+                    "maxRequestSize": 900,
+                    "responseLogging": "all"
+                }
+              }
             ],
             "profileDOS": {
                         "use": "DOS_Profile"
@@ -102,45 +140,6 @@ template: |
               "ciphertext": "ZjVmNQ==",
               "protected": "eyJhbGciOiJkaXIiLCJlbmMiOiJub25lIn0"
             }
-          },
-          "secLogLocal": {
-                "class": "Security_Log_Profile",
-                "application": {
-                    "storageFilter": {
-                        "logicalOperation": "and",
-                        "requestType": "all",
-                        "responseCodes": [
-                            "100",
-                            "200",
-                            "300",
-                            "400"
-                        ],
-                        "protocols": [
-                            "https",
-                            "ws"
-                        ],
-                        "httpMethods": [
-                            "ACL",
-                            "GET",
-                            "POLL",
-                            "POST"
-                        ],
-                        "requestContains": {
-                            "searchIn": "search-in-headers",
-                            "value": "The header string to search for"
-                        },
-                        "loginResults": [
-                            "login-result-successful",
-                            "login-result-failed"
-                        ]
-                    },
-                    "guaranteeLoggingEnabled": true,
-                    "guaranteeResponseLoggingEnabled": true,
-                    "maxHeaderSize": 200,
-                    "maxQuerySize": 1040,
-                    "maxRequestSize": 900,
-                    "responseLogging": "all"
-                }
           },
           "DOS_Profile": {
             "class": "DOS_Profile",
